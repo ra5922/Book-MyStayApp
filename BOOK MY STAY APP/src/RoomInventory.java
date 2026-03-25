@@ -5,31 +5,27 @@ class RoomInventory {
 
     private HashMap<String, Integer> inventory;
 
-    // Constructor - initialize inventory
     public RoomInventory() {
         inventory = new HashMap<>();
 
-        inventory.put("Single Room", 5);
-        inventory.put("Double Room", 3);
-        inventory.put("Suite Room", 2);
+        inventory.put("Single Room", 2);
+        inventory.put("Double Room", 2);
+        inventory.put("Suite Room", 1);
     }
 
-    // Get availability
     public int getAvailability(String roomType) {
         return inventory.getOrDefault(roomType, 0);
     }
 
-    // Update availability
     public void updateAvailability(String roomType, int count) {
         inventory.put(roomType, count);
     }
 
-    // Display all inventory
     public void displayInventory() {
-        System.out.println("=== Centralized Room Inventory ===");
+        System.out.println("\n=== Final Inventory ===");
 
         for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
-            System.out.println(entry.getKey() + " → Available: " + entry.getValue());
+            System.out.println(entry.getKey() + " : " + entry.getValue());
         }
     }
 }

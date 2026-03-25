@@ -15,17 +15,8 @@ class BookingRequestQueue {
         System.out.println("Request added for " + reservation.getGuestName());
     }
 
-    // View all requests (without removing)
-    public void viewRequests() {
-        System.out.println("\n=== Booking Request Queue ===");
 
-        for (Reservation r : queue) {
-            r.display();
-        }
-    }
-
-    // Get next request (for future use)
-    public Reservation getNextRequest() {
-        return queue.peek(); // does NOT remove
+    public Reservation processNextRequest() {
+        return queue.poll();   // removes + returns first request (FIFO)
     }
 }
