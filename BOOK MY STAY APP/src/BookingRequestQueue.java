@@ -9,14 +9,14 @@ class BookingRequestQueue {
         queue = new LinkedList<>();
     }
 
+   t
     public void addRequest(Reservation reservation) {
         queue.offer(reservation);
         System.out.println("Request added for " + reservation.getGuestName());
     }
 
-    // ✅ MUST EXIST (fixes your error)
-    public Reservation pollRequest() {
-        return queue.poll();
+
+    public Reservation processNextRequest() {
+        return queue.poll();   // removes + returns first request (FIFO)
     }
 }
-
