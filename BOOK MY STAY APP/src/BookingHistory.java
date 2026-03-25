@@ -1,35 +1,14 @@
 import java.util.*;
 
-class BookingHistory {
+public class BookingHistory{
 
-    private List<Reservation1> history;
+    private HashMap<String,Reservation> history=new HashMap<>();
 
-    public BookingHistory() {
-        history = new ArrayList<>();
+    public void add(Reservation r){
+        history.put(r.getReservationId(),r);
     }
 
-    public void addReservation(Reservation1 reservation) {
-        history.add(reservation);
-        System.out.println("Added to history: " + reservation.getReservationId());
-    }
-
-    public List<Reservation1> getAllReservations() {
-        return history;
-    }
-
-    public void displayHistory() {
-
-        System.out.println("\n=== Booking History ===");
-
-        if (history.isEmpty()) {
-            System.out.println("No bookings found.");
-            return;
-        }
-
-        for (Reservation1 r : history) {
-            System.out.println("ID: " + r.getReservationId()
-                    + " | Guest: " + r.getGuestName()
-                    + " | Room: " + r.getRoomType());
-        }
+    public Reservation get(String id){
+        return history.get(id);
     }
 }
