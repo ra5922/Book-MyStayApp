@@ -9,7 +9,7 @@ class BookingRequestQueue {
         queue = new LinkedList<>();
     }
 
-   t
+    // Add booking request
     public void addRequest(Reservation reservation) {
         queue.offer(reservation);
         System.out.println("Request added for " + reservation.getGuestName());
