@@ -1,14 +1,23 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class BookingHistory{
+public class BookingHistory implements Serializable{
 
-    private HashMap<String,Reservation> history=new HashMap<>();
+    private static final long serialVersionUID=1L;
+
+    private List<Reservation> list=new ArrayList<>();
 
     public void add(Reservation r){
-        history.put(r.getReservationId(),r);
+        list.add(r);
     }
 
-    public Reservation get(String id){
-        return history.get(id);
+    public List<Reservation> getAll(){
+        return list;
+    }
+
+    public void show(){
+        for(Reservation r:list){
+            System.out.println(r);
+        }
     }
 }
