@@ -1,31 +1,18 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-class RoomInventory {
+public class RoomInventory{
 
-    private HashMap<String, Integer> inventory;
+    private HashMap<String,Integer> map=new HashMap<>();
 
-    public RoomInventory() {
-        inventory = new HashMap<>();
-
-        inventory.put("Single Room", 2);
-        inventory.put("Double Room", 2);
-        inventory.put("Suite Room", 1);
+    public void addRoom(String type,int count){
+        map.put(type,count);
     }
 
-    public int getAvailability(String roomType) {
-        return inventory.getOrDefault(roomType, 0);
+    public int getAvailability(String type){
+        return map.getOrDefault(type,0);
     }
 
-    public void updateAvailability(String roomType, int count) {
-        inventory.put(roomType, count);
-    }
-
-    public void displayInventory() {
-        System.out.println("\n=== Final Inventory ===");
-
-        for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-        }
+    public void increase(String type){
+        map.put(type,map.get(type)+1);
     }
 }
